@@ -19,7 +19,8 @@ public class Utilidades {
                 contador_punto++;
             }
         }
-        if (contador_punto > 1) {
+        if (contador_punto > 1 || (numero.length() < 2 && contador_punto == 1) || numero.length() == 0) {
+            System.out.println(numero);
             return false;
         }
         return validador;

@@ -50,7 +50,7 @@ public class Agua {
                 resto = 0.3f;
             }
         } else {
-            resto = validarDiscapacidad() / 100;
+            resto = (float) validarDiscapacidad() / 100;
         }
         return resto * base;
     }
@@ -73,28 +73,19 @@ public class Agua {
     }
 
     public static float valorCobro(float volumen) {
-        float valor = base;
         if (volumen <= 15) {
-            return valor;
+            return base;
         }
-        int metroscubicos = 15;
-        float acumulador = 0.1f;
-        do {
-            metroscubicos++;
-            valor += acumulador;
-            if (metroscubicos < 25) {
-                acumulador = 0.1f;
-            }
-            if (metroscubicos >= 25 && metroscubicos < 40) {
-                acumulador = 0.2f;
-            }
-            if (metroscubicos >= 40 && metroscubicos < 60) {
-                acumulador = 0.3f;
-            }
-            if (metroscubicos >= 60) {
-                acumulador = 0.35f;
-            }
-        } while (metroscubicos < volumen);
-        return Utilidades.redondear(valor, 2);
+        if (volumen <= 25) {
+            return (base + (volumen - 15) * 0.1f);
+        }
+        if (volumen <= 40) {
+            return (base + 10 * 0.1f + (volumen - 25) * 0.2f);
+        }
+        if (volumen <= 60) {
+            return (base + 10 * 0.1f + 15 * 0.2f + (volumen - 40) * 0.3f);
+        } else {
+            return (base + 10 * 0.1f + 15 * 0.2f + 20 * 0.3f + (volumen - 60) * 0.35f);
+        }
     }
 }
