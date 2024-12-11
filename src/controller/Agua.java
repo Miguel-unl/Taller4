@@ -14,7 +14,7 @@ public class Agua {
         do{
             volumen = Utilidades.readFloat("Ingrese el consumo de agua en m3 (metros cubicos)");
             if(volumen <=0){
-                System.out.pintln("El consumo de agua debe ser mayor a 0");
+                System.out.println("El consumo de agua debe ser mayor a 0");
             }
         }while(volumen<=0);
         System.out.println("¿El contribuyente es de tercera edad o posee alguna discapacidad?");
