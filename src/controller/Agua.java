@@ -11,7 +11,12 @@ public class Agua {
     public static void ejecutar() {
         float volumen, reduccion = 0.0f;
         char desc;
-        volumen = Utilidades.readFloat("Ingrese el consumo de agua en m3 (metros cubicos)");
+        do{
+            volumen = Utilidades.readFloat("Ingrese el consumo de agua en m3 (metros cubicos)");
+            if(volumen <=0){
+                System.out.pintln("El consumo de agua debe ser mayor a 0");
+            }
+        }while(volumen<=0);
         System.out.println("¿El contribuyente es de tercera edad o posee alguna discapacidad?");
         desc = Utilidades.readChar("Ingrese \"S\" si el propietario es de tercera edad");
         if (desc == 'S') {
