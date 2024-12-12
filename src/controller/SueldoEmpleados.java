@@ -12,7 +12,13 @@ public class SueldoEmpleados {
         float venta, total = 0;
         int autosbon = 0, autosven = 0;
         do {
-            venta = Utilidades.readFloat("Ingrese el valor de la venta: ");
+            do {
+                venta = Utilidades.readFloat("Ingrese el valor de la venta: ");
+                if (venta <= 0) {
+                    System.out.println("El precio del auto debe ser mayor a 0");
+                }
+            } while (venta <= 0);
+
             if (venta > 10000.0f) {
                 autosbon++;
             } else {

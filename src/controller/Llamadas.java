@@ -48,7 +48,12 @@ public class Llamadas {
                 break;
             }
         }
-        minutos = Utilidades.readInteger("Ingrese los minutos hablados");
+        do {
+            minutos = Utilidades.readInteger("Ingrese los minutos hablados");
+            if (minutos <= 0) {
+                System.out.println("Una cantidad de minutos valida");
+            }
+        } while (minutos <= 0);
         System.out.println(
                 "Por realizar una llamada de " + minutos + " minutos a la zona " + op + ": " + rg.name());
         System.out.println("Debe pagar: " + (minutos * rg.getPrecio()) + " dolares");
