@@ -17,7 +17,6 @@ public class Agua {
                 System.out.println("El consumo de agua debe ser mayor a 0");
             }
         }while(volumen<=0);
-        System.out.println("¿El contribuyente es de tercera edad o posee alguna discapacidad?");
         desc = Utilidades.readChar("Ingrese \"S\" si el propietario es de tercera edad");
         if (desc == 'S') {
             reduccion += Utilidades.redondear(descuento(true, volumen), 2);
